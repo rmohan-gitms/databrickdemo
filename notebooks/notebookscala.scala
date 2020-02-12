@@ -47,3 +47,9 @@ customers.createOrReplaceTempView("customers")
 // MAGIC %sql
 // MAGIC 
 // MAGIC SELECT COUNT(*) AS NoOfCustomers FROM customers
+
+// COMMAND ----------
+
+// MAGIC %sql
+// MAGIC 
+// MAGIC SELECT ID,Name,Age AS NoOfCustomers FROM customers ORDER BY Age
