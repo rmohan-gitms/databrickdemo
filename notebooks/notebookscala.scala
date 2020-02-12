@@ -53,3 +53,18 @@ customers.createOrReplaceTempView("customers")
 // MAGIC %sql
 // MAGIC 
 // MAGIC SELECT ID,Name,Age AS NoOfCustomers FROM customers ORDER BY Age
+
+// COMMAND ----------
+
+val getCustomerType = (Age: Int) => {
+  if(Age >= 30 && Age < 40) "Silver"
+  else "Platinum"
+}
+
+spark.udf.register("getCustomerType", getCustomerType)
+
+
+// COMMAND ----------
+
+// MAGIC %sql
+// MAGIC select Age, getCustomerType(Age) from customers
